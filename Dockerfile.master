@@ -1,0 +1,7 @@
+FROM gcc:latest
+WORKDIR /app
+COPY master.c .
+RUN gcc master.c -o master
+EXPOSE 5000
+
+CMD ["./master"]

@@ -1,0 +1,11 @@
+FROM gcc:latest
+WORKDIR /app
+COPY worker.c .
+RUN gcc worker.c -o worker
+EXPOSE 6000
+
+USER root
+RUN apt-get update
+RUN apt-get install -y iptables
+
+CMD ["./worker"]
