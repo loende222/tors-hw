@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  raft-1:
+    environment:
+      INDEX: 1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raft-1
+    ports:
+      - "5001:5001"
+    networks:
+      - app_network
+
+  raft-2:
+    environment:
+      INDEX: 2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raft-2
+    ports:
+      - "5002:5002"
+    networks:
+      - app_network
+
+  raft-3:
+    environment:
+      INDEX: 3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raft-3
+    ports:
+      - "5003:5003"
+    networks:
+      - app_network
+
+  raft-4:
+    environment:
+      INDEX: 4
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: raft-4
+    ports:
+      - "5004:5004"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
