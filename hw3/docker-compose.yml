@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  crdt-0:
+    environment:
+      INDEX: 0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crdt-0
+    ports:
+      - "7000:7000"
+    networks:
+      - app_network
+
+  crdt-1:
+    environment:
+      INDEX: 1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crdt-1
+    ports:
+      - "7001:7001"
+    networks:
+      - app_network
+
+  crdt-2:
+    environment:
+      INDEX: 2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crdt-2
+    ports:
+      - "7002:7002"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
